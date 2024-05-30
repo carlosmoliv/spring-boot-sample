@@ -1,8 +1,8 @@
 package com.carlosoliveira.runnerz.run;
 
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,7 +23,7 @@ public class RunController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public void create(@RequestBody Run run) {
+    public void create(@Valid @RequestBody Run run) {
         runRepository.save(run);
     }
 

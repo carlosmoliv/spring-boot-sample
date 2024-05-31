@@ -10,9 +10,9 @@ import java.util.Optional;
 @RequestMapping("api/v1/runs")
 @RestController()
 public class RunController {
-    private final RunRepository runRepository;
+    private final InMemoryRunRepository runRepository;
 
-    public RunController(RunRepository runRepository) {
+    public RunController(InMemoryRunRepository runRepository) {
         this.runRepository = runRepository;
     }
 
@@ -24,8 +24,9 @@ public class RunController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     public void create(@Valid @RequestBody Run run) {
-        runRepository.save(run);
+        runRepository.create(run);
     }
+
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")

@@ -53,4 +53,14 @@ public class InMemoryRunRepository implements RunRepository {
                 .param("id", id)
                 .update();
     }
+
+    @Override
+    public int count() {
+        return jdbcClient.sql("select * from run").query().listOfRows().size();
+    }
+
+    @Override
+    public void saveAll(List<Run> runs) {
+        runs.stream().forEach(this::create);
+    }
 }

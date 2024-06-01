@@ -13,4 +13,8 @@ public interface RunRepository {
     void delete(Integer id);
 
     Optional<Run> findById(Integer id);
+
+    int count();
+
+    void saveAll(List<Run> runs);
 }

@@ -1,0 +1,36 @@
+{
+  "runs": [
+    {
+      "id": 1,
+      "title": "New Run 1",
+      "startedOn": "2024-05-29T06:34:56",
+      "completedOn": "2024-05-29T10:04:56",
+      "miles": 24,
+      "location": "OUTDOOR"
+    },
+    {
+      "id": 2,
+      "title": "New Run 2",
+      "startedOn": "2024-06-01T12:34:56",
+      "completedOn": "2024-06-01T14:04:56",
+      "miles": 6,
+      "location": "INDOOR"
+    },
+    {
+      "id": 3,
+      "title": "New Run 2",
+      "startedOn": "2024-06-01T12:34:56",
+      "completedOn": "2024-06-01T14:04:56",
+      "miles": 6,
+      "location": "INDOOR"
+    },
+    {
+      "id": 4,
+      "title": "New Run 2",
+      "startedOn": "2024-06-01T12:34:56",
+      "completedOn": "2024-06-01T14:04:56",
+      "miles": 6,
+      "location": "INDOOR"
+    }
+  ]
+}

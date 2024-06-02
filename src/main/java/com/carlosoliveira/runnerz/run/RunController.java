@@ -10,9 +10,9 @@ import java.util.Optional;
 @RequestMapping("api/v1/runs")
 @RestController()
 public class RunController {
-    private final InMemoryRunRepository runRepository;
+    private final JdbcClientRunRepository runRepository;
 
-    public RunController(InMemoryRunRepository runRepository) {
+    public RunController(JdbcClientRunRepository runRepository) {
         this.runRepository = runRepository;
     }
 

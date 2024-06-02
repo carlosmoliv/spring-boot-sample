@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class InMemoryRunRepository implements RunRepository {
-    private static final Logger log = LoggerFactory.getLogger(InMemoryRunRepository.class);
+public class JdbcClientRunRepository implements RunRepository {
+    private static final Logger log = LoggerFactory.getLogger(JdbcClientRunRepository.class);
     private final JdbcClient jdbcClient;
 
-    public InMemoryRunRepository(JdbcClient jdbcClient) {
+    public JdbcClientRunRepository(JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;
     }
 

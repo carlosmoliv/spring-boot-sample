@@ -39,7 +39,7 @@ public class SimpleRunRepository {
 
     @PostConstruct
     public void init() {
-        runs.add(new Run(1, "Monday morning run", LocalDateTime.now(), LocalDateTime.now().plusMinutes(30), 3, Location.INDOOR));
-        runs.add(new Run(2, "Wednesday evening run", LocalDateTime.now(), LocalDateTime.now().plusMinutes(60), 6, Location.INDOOR));
+        runs.add(new Run(1, "Monday morning run", LocalDateTime.now(), LocalDateTime.now().plusMinutes(30), 3, Location.INDOOR, 1));
+        runs.add(new Run(2, "Wednesday evening run", LocalDateTime.now(), LocalDateTime.now().plusMinutes(60), 6, Location.INDOOR, 2));
     }
 }

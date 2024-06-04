@@ -1,8 +1,7 @@
 package com.carlosoliveira.runnerz;
 
-import com.carlosoliveira.runnerz.run.Location;
-import com.carlosoliveira.runnerz.run.Run;
-import com.carlosoliveira.runnerz.run.RunRepository;
+import com.carlosoliveira.runnerz.user.User;
+import com.carlosoliveira.runnerz.user.UserRestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -10,7 +9,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-import java.time.LocalDateTime;
+import java.util.List;
+
 
 @SpringBootApplication
 public class RunnerzApplication {
@@ -35,4 +35,12 @@ public class RunnerzApplication {
 //            runRepository.create(run);
 //        };
 //    }
+
+    @Bean
+    CommandLineRunner runner(UserRestClient client) {
+        return args -> {
+            List<User> users = client.findAll();
+            System.out.println(users);
+        };
+    }
 }

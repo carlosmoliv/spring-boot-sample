@@ -1,7 +1,7 @@
 package com.carlosoliveira.runnerz.user;
 
 public record User(
-        Long id,
+        Integer id,
         String name,
         String username,
         String email,

@@ -1,9 +1,9 @@
 services:
-  postgre:
+  postgres:
     image: 'postgres:latest'
     environment:
-      - 'POSTGRES_DB=runnez_database'
-      - 'POSTGRES_USER=runnez'
+      - 'POSTGRES_DB=runnerz_database'
+      - 'POSTGRES_USER=runnerz'
       - 'POSTGRES_PASSWORD=pass123'
     ports:
       - '5432:5432'

@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public class JdbcClientRunRepository {
-    private static final Logger log = LoggerFactory.getLogger(JdbcClientRunRepository.class);
+public class JdbcRunRepository {
+    private static final Logger log = LoggerFactory.getLogger(JdbcRunRepository.class);
     private final JdbcClient jdbcClient;
 
-    public JdbcClientRunRepository(JdbcClient jdbcClient) {
+    public JdbcRunRepository(JdbcClient jdbcClient) {
         this.jdbcClient = jdbcClient;
     }
 
@@ -23,22 +23,22 @@ public class JdbcClientRunRepository {
     }
 
     public Optional<Run> findById(Integer id) {
-        return jdbcClient.sql("SELECT id,title,completed_on,started_on,miles,location FROM Run WHERE id = :id")
+        return jdbcClient.sql("SELECT id,title,completed_on,started_on,miles,location,version FROM Run WHERE id = :id")
                 .param("id", id)
                 .query(Run.class)
                 .optional();
     }
 
     public void create(Run run) {
-        var created = jdbcClient.sql("INSERT INTO Run(id,title,started_on, completed_on,miles,location) values (?,?,?,?,?,?)")
-                .params(List.of(run.id(), run.title(), run.startedOn(), run.completedOn(), run.miles(), run.location().toString()))
+        var created = jdbcClient.sql("INSERT INTO Run(id,title,started_on,completed_on,miles,location,version) values (?,?,?,?,?,?,?)")
+                .params(List.of(run.id(), run.title(), run.startedOn(), run.completedOn(), run.miles(), run.location().toString(), run.version()))
                 .update();
         Assert.state(created == 1, "Failed to updated Run" + run.title());
     }
 
     public void update(Run run, Integer id) {
-        var updated = jdbcClient.sql("UPDATE run SET title = ?, started_on = ?, completed_on = ?, miles = ?, location = ? where id = ?")
-                .params(List.of(run.title(), run.startedOn(), run.completedOn(), run.miles(), run.location().toString(), id))
+        var updated = jdbcClient.sql("UPDATE run SET title = ?, started_on = ?, completed_on = ?, miles = ?, location = ?, version = ? where id = ?")
+                .params(List.of(run.title(), run.startedOn(), run.completedOn(), run.miles(), run.location().toString(), run.version(), id))
                 .update();
         Assert.state(updated == 1, "Failed to updated Run" + run.title());
     }

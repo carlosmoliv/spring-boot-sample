@@ -13,7 +13,6 @@ import java.util.Optional;
 
 @Repository
 class InMemoryRunRepository {
-
     private static final Logger log = LoggerFactory.getLogger(InMemoryRunRepository.class);
     private final List<Run> runs = new ArrayList<>();
 
@@ -89,6 +88,4 @@ class InMemoryRunRepository {
                 null
         ));
     }
-
-
 }

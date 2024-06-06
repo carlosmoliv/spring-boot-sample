@@ -27,7 +27,6 @@ public class RunController {
         runRepository.save(run);
     }
 
-
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/{id}")
     public void update(@RequestBody Run run, @PathVariable Integer id) {
